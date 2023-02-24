@@ -1,13 +1,19 @@
 {
+  "name": "vertec-improver",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "nuxt generate && node script/build.mjs && pnpm run zip",
+    "zip": "mkdir -p build && cd .output/public && zip -r ../../build/vertec-improver-1.0.0.zip ./* && cd ..",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.2.2"
+    "@types/node": "^18.14.0",
+    "@types/webextension-polyfill": "^0.10.0",
+    "nuxt": "^3.2.2",
+    "sass": "^1.58.3",
+    "webextension-polyfill": "^0.10.0"
   }
 }
